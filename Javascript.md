@@ -1,3 +1,9 @@
+Javascript -
+
+Javascript is weakly typed, prototype-based language with first-class functions.
+Javascript is dynamic. Compilation & execution happens together.
+JS is weakly typed. Type associated with value, not variable.
+
 1. JS variables must start with _/$/letter only.
 2. Operator precedence -> BODMAS
 3. console.log("Hello \"World\"") // Ouput : Hello "World"
@@ -114,3 +120,13 @@ Javascript Objects =>
 14. console.time('Here') & console.timeEnd('Here') -> non-standard way of measuring time difference
 15. Object.seal -> can be used to fix length of JS array object
 16. Array lookup
+17. typeof -
+    - Undefined -> "undefined"
+    - Null -> "object"
+    - Boolean -> "boolean"
+    - Number -> "number"
+    - NaN -> "number"
+    - String -> string"
+    - Function -> "function"
+    - Array -> "object"
+    - Any other object -> "object"
