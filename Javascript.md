@@ -6,7 +6,7 @@ JS is weakly typed. Type associated with value, not variable.
 
 1. JS variables must start with _/$/letter only.
 2. Operator precedence -> BODMAS
-3. console.log("Hello \"World\"") // Ouput : Hello "World"
+3. console.log("Hello \"World\"") // Output : Hello "World"
 4. While parsing a number, first letter should be a number
 5. falsy values -> false, 0, "", null, undefined, NaN
 6. toFixed() is used to convert floating point to fixed number
@@ -15,11 +15,14 @@ JS is weakly typed. Type associated with value, not variable.
 9. addEventListener
 10. method has prototype & Object has __proto__
 11. Strict mode
+12. Call by value passes actual values & does not reflect changes to original values.
+13. Call by reference passes reference values & does reflect changes to original values.
 
 Javascript Arrays =>
-1. Aray shift & unshift
+1. Array shift() & unshift()
 2. Slice(creates a sub-array) & splice(for inserting/deleting)
 3. filter(used for searching & creating new array), find(checks & return true/false), forEach(), indexOf
+4. Array.isArray(arr) // true
 
 Javascript Modules =>
 1. type="module" in importing JS from HTML(<script type="module">)
