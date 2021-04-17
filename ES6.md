@@ -82,7 +82,7 @@
 18. Array Comprehensions -
     - let ary = [for (i of [1,2,3]) i*i]; //[1,4,9]
     - let ary = [for (i of [1,2,3]) if(i<3)]; //[1,2]
-19. Set -
+19. Set(no duplicates) -
     - let set = new Set()
       console.log(set.size)
     - set.add("Sumant")
@@ -110,106 +110,108 @@
     - let set = new Set()
       set.add(1)
       let entries = set.entries()
-      var firstEntry = entries.next().value;
+      let firstEntry = entries.next().value;
       console.log(firstEntry[0]); // 1
       console.log(firstEntry[1]); // 1
     - let set = new Set()
       set.add(1)
       let values = set.values()
-      var firstEntry = values.next().value;
+      let firstEntry = values.next().value;
       console.log(firstEntry); // 1
-    - var set = new Set()
+    - let set = new Set()
       set.add(1)
       set.add(2)
-      var set2 = new Set(set.values())
+      let set2 = new Set(set.values())
       console.log(set2.size); // 2
-20. Map(no duplicates) -
-    - var map = new Map();
+20. Map(no duplicate keys) -
+    - let map = new Map();
       console.log(map.size); // 0
-    - var map = new Map();
+    - let map = new Map();
       map.set("age", 28)
-    - var map = new Map()
+    - let map = new Map()
       console.log(map.get("size")); //28
-    - var map = new Map([["fName","Sumant"], ["lName","Kataria"], ["age","28"]]);
+    - let map = new Map([["fName","Sumant"], ["lName","Kataria"], ["age","28"]]);
       console.log(map.has("age")); // true
-    - var map = new Map();
-      var key = {}
+    - let map = new Map();
+      let key = {}
       map.set(key, "first");
       map.set(key, "second");
       console.log(map.get(key)); // "second"
-    - var map = new Map()
+    - let map = new Map()
       map.set(1, 'a');
       map.set(2, 'b');
       map.clear();
       console.log(map.size); // 0
-      - var map = new Map()
+      - let map = new Map()
       map.set(1, 'a');
       map.set(2, 'b');
       map.delete(1);
       console.log(map.size); // 1
-    - var map = new Map([["fName","Sumant"], ["lName","Kataria"], ["age","28"]]);
+    - let map = new Map([["fName","Sumant"], ["lName","Kataria"], ["age","28"]]);
       map.forEach((value, key) => {
           console.log(value)
       })
-    - var map = new Map()
+    - let map = new Map()
       map.set('name', 'sumant');
-      var entries = map.entries();
-      var firstEntry = entries.next().value;
+      let entries = map.entries();
+      let firstEntry = entries.next().value;
       console.log(firstEntry[0]); //name
       console.log(firstEntry[1]); //sumant
-    - var map = new Map()
+    - let map = new Map()
       map.set('name', 'sumant');
-      var values = map.values();
-      var firstEntry = values.next().value;
+      let values = map.values();
+      let firstEntry = values.next().value;
       console.log(firstEntry); //"Sumant"
-    - var map = new Map()
+    - let map = new Map()
       map.set('name', 'sumant');
-      var values = map.keys();
-      var firstEntry = keys.next().value;
+      let values = map.keys();
+      let firstEntry = keys.next().value;
       console.log(firstEntry); //"name"
-    - var map = new Map()
+    - let map = new Map()
       map.set(1, 'a')
       map.set(2, 'b')
-      var map2 = new Map(map.entries());
+      let map2 = new Map(map.entries());
       console.log(map2.size); // 3
+    - Faster searching than Objects
+    - keys can be of any data type
 21. WeakMap & WeakSet(if a div element is removed from DOM& its corresponding item in set is still pointing at it, so that div element cannot be Garbage collected & its still stuck in memory, So, to solve it WeakMap & WeakSet are created. Their pointers are not strong pointers & therefore the GC can recycle the objects even if the WeakMap/WeakSet is still pointing at it.)
     - WeakSet -
-        - var set = new WeakSet();
+        - let set = new WeakSet();
           console.log(set.size); // undefined
           console.log(set.entries); // undefined
           console.log(set.values); // undefined
           console.log(set.forEach); // undefined
-        - var set = new WeakSet()
-          var item = {name: "Sumant"};
+        - let set = new WeakSet()
+          let item = {name: "Sumant"};
           set.add(item)
           console.log(set.has(item)); // true
-        - var set = new WeakSet()
-          var item = {name: "Sumant"};
+        - let set = new WeakSet()
+          let item = {name: "Sumant"};
           set.add(item);
           set.delete(item);
           console.log(set.has(item)); // false
-        - var set = new WeakSet()
-          var item = {name: "Sumant"};
+        - let set = new WeakSet()
+          let item = {name: "Sumant"};
           set.add(item);
           set.clear(item);
           console.log(set.has(item)); // false
     - WeakMap -
-        - var map = new WeakMap();
+        - let map = new WeakMap();
           console.log(map.size); // undefined
           console.log(map.entries); // undefined
           console.log(map.values); // undefined
           console.log(map.forEach); // undefined
-        - var map = new WeakMap()
-          var key = {};
+        - let map = new WeakMap()
+          let key = {};
           map.set(key, "a")
           console.log(map.has(key)); // true
-        - var map = new WeakMap();
-          var key = {};
+        - let map = new WeakMap();
+          let key = {};
           map.set(key, "a")
           map.delete(key);
           console.log(map.has(item)); // false
-        - var map = new WeakMap()
-          var key = {};
+        - let map = new WeakMap()
+          let key = {};
           map.set(key, "a")
           map.clear(key);
           console.log(map.has(item)); // false
