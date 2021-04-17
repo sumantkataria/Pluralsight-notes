@@ -97,8 +97,10 @@ Javascript Asynchronous =>
 Javascript Objects =>
 1. Objects literals, constructor functions & classes
 2. for...in loop
-3. Object.is(person1, person2)
-4. Object.assign()
+3. ====                   |     Object.is(person1, person2)
+   NaN not equal to NaN   |     NaN equals NaN
+   -0 equals -0           |     +0 not equal -0
+4. Object.assign(val2, val1) // Copies all properties of val1 to val2
 5. Object.create(
     Object.prototype, {
         firstName: {value: 'Sumant', enumerable: true, writable: true, configurable: true},
@@ -107,17 +109,25 @@ Javascript Objects =>
     }
 )
 6. Object.defineProperty(person, 'firstName', {writable: false})
+    Object.defineProperty(person, 'firstName', {enumerable: false})
+    Object.defineProperty(person, 'firstName', {configurable: false})
     - We can't change the property value but we can change the child properties
 7. Object.getOwnPropertyDescriptor()
 8. Object.freeze(person.name)
-9. Enumerable, writable & configurable
-10. getters & setters
+9. Enumerable(not-visible while printing), writable(non-modifiable) & configurable(stop modifications)
+10. getters & setters in JS
+    - ES6 -> get methodName() {}
+    - ES6 -> set methodName() {}
 11. math, date & regex
+    - Math.PI()
+    - Math.max(1,2,3) // 3
     - let date1 = new Date(2005, 3, 12, 13, 1, 30, 50);
-    - let date1 = new Date(2005, 3, 12, 13, 1, 30, 55);
-    - log(date2 - date1);
+      let date1 = new Date(2005, 3, 12, 13, 1, 30, 55);
+      log(date2 - date1);
     - let regex = new RegExp('[A-Z]');
-    - regex.test('scadhgd')
+      regex.test('scadhgd') // true
+    - let regex = /ERROR.*?:/
+    - regex.exec('string to search error') // true
 12. ((new Date()).getTime()) -> returns current time in milliseconds
 13. performance.now() -> more accurate way of measuring time difference
 14. console.time('Here') & console.timeEnd('Here') -> non-standard way of measuring time difference
