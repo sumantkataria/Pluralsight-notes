@@ -48,43 +48,62 @@ Javascript functions =>
 
 Javascript Asynchronous =>
 1. Promise(object that represents the eventual completion(or failure) of an asychronous operation & its resulting value)
-    - then
-    - catch
+    - then (fulfilled)
+    - catch (rejected)
     - finally
 2. Promise states -
     - Pending
-    - Fulfilled
+    - Fulfilled(settled, resolved)
     - Rejected
-3. Custom promises
-    const wait = new Promise((resolve) => {
+3. Custom promises -
+    - const wait = new Promise((resolve) => {
         setTimeout(() => {
             resolve("timeout");
         }, 1500)
     })
     wait.then(text => setText(text));
+    - let request = new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://abc.xyz')
+        xhr.onload = () => (xhr.status === 200) ? resolve() : reject()
+        xhr.onerror = () => reject()
+        xhr.send()
+    });
 4. Multiple promise responses fulfilled returns still show only first response received.
 5. XMLHTTPRequest = open, onload, onerror, send
 6. Promise.all([promise1, promise2, promise3]).then([a,b,c])=> {}
-7. Promise.all([promise1, promise2, promise3]).then(values) => {
-    let results = values.map(v => {
-        if(v.status === 'fulfilled')
-        else if(v.status === 'rejected')
-    })
-}
-- If 1 fails, it will proceed all after getting response now
-- Check for FULFILLED or REJECTED
-8. Promise.race([users, backup]).then().catch
-    - It will check for any 1 response settled & proceed
+7. Promise.allSettled([promise1, promise2, promise3]).then(values) => {
+        let results = values.map(v => {
+            if(v.status === 'fulfilled')
+            else if(v.status === 'rejected')
+        })
+    }
+    - If 1 fails, it will proceed all after getting response now
+    - Check for FULFILLED or REJECTED
+    - Resolved or fulfilled returns status & value
+    - Rejected returns status & reason
+8. Promise.race([users, backup])
+    .then(users => setData(users.data))
+    .catch(reason => setData(reason))
+    - It will check for any 1 response settled & proceed & stops execution
 9. Async/Await used for methods returning a promise & does the same thing as promises
-10. 2 await calls
-    - let {data} = await axios.get('URL')
-    - let {data:address} = await axios.get('URL2')
+10. 2 async/await calls -
+    async function chaining () {
+        try {
+            let {data} = await axios.get('URL')
+            let {data:address} = await axios.get('URL2')
+        } catch (error) {
+            setError(error)
+        }
+    }
 11. Concurrent await calls -
+    Allows for concurrent requests running
     - let data = axios.get('URL')
-    - let data2 = axios.get('URL2')
-    - let resp1 = await data
-    - let resp2 = await data2
-12. Parallel await calls -
+      let data2 = axios.get('URL2')
+      let resp1 = await data
+      let resp2 = await data2
+      setResp(resp1); setResp(resp2)
+12. Parallel await calls(wait for all promises to be completed) -
     await Promise.all([
         (async () => {
             const {data} = await axios.get('URL1')
