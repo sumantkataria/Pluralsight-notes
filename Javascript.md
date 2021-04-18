@@ -162,3 +162,12 @@ Javascript Objects =>
     - Function -> "function"
     - Array -> "object"
     - Any other object -> "object"
+
+Good parts of Javascript ->
+1. return; //semicolon insertion 
+   {
+       ok
+   }
+2. Declare all variables at the top of the function.
+3. Declare all functions before you call them.
+4. Use least GLOBAL_VARIABLES.
