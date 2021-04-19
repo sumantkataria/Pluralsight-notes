@@ -5,6 +5,7 @@
     console.log(x, y)
 3. Default parameters
     - Always last formal parameter
+    - function fullName(fName="Sumant", lName="Kataria") {}
 4. Rest parameters
     - must be last formal parameter
     - function greet(...names) {
