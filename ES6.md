@@ -116,6 +116,12 @@
       let key = {}
       set.add(1)
       set.add(2)
+      set.clear();
+      console.log(set.size); // 0
+    - let set = new Set()
+      let key = {}
+      set.add(1)
+      set.add(2)
       set.delete(1);
       console.log(set.size); // 1
     - let set = new Set(1,2,3);
@@ -157,7 +163,7 @@
       map.set(2, 'b');
       map.clear();
       console.log(map.size); // 0
-      - let map = new Map()
+    - let map = new Map()
       map.set(1, 'a');
       map.set(2, 'b');
       map.delete(1);
@@ -214,6 +220,7 @@
         - let map = new WeakMap();
           console.log(map.size); // undefined
           console.log(map.entries); // undefined
+          console.log(map.keys); // undefined
           console.log(map.values); // undefined
           console.log(map.forEach); // undefined
         - let map = new WeakMap()
