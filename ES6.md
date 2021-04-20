@@ -32,7 +32,21 @@
     }
 12. arrow function
 13. Iterators & Generators(yield function)
-14. comprehensions
+    - let numbers = function*() {
+        yield 1;
+        yield 2;
+        yield 3;
+        yield 4;
+    } // Generator function
+    let sum = 0;
+    let iterator = numbers();
+    let next = iterator.next();
+    while(!next.done) {
+      sum += next.value;
+      next = iterator.next();
+    }
+14. Comprehensions
+    - let numbers = [for (n of [1,2,3] n*n)] // [1,4,9]
 15. Number
     - hexadecimal literal
     - binary literal
@@ -45,28 +59,28 @@
     - Number.MIN_SAFE_INTEGER
     - Number.isSafeInteger
 16. Math
-    - Math.acosh
-    - Math.asinh
-    - Math.atanh
-    - Math.cosh
-    - Math.sinh
-    - Math.tanh
+    - Math.acosh(1) // 0
+    - Math.asinh(0) // 0
+    - Math.atanh(0) // 0
+    - Math.cosh(0) // 1
+    - Math.sinh(0) // 0
+    - Math.tanh(0) // 0
 
-    - Math.cbrt
-    - Math.clz32
-    - Math.log1p
-    - Math.log10
-    - Math.log2
-    - Math.expm1
-    - Math.hypot
-    - Math.fround
+    - Math.cbrt(27) // 3
+    - Math.clz32(5) // 29
+    - Math.log1p(35) // 3.583...
+    - Math.log10(100) // 2
+    - Math.log2(32) // 5
+    - Math.expm1(35) // 1586013452313434.2
+    - Math.hypot(3,4) // 5
+    - Math.fround(2.888) // 2.888....
 
-    - Math.sign
-    - Math.trunc
+    - Math.sign(10) // 1
+    - Math.trunc(-2.8) // -2
 17. Array -
-    - [1,5,10].find(item => item > 8);
-    - [1,8,10].findIndex(item => item > 3);
-    - [1,2,3,4,5].fill('a')
+    - [1,5,10].find(item => item > 8); // 10
+    - [1,8,10].findIndex(item => item > 3); // 1
+    - [1,2,3,4,5].fill('a');
     - [1,2,3,4].copyWithin(2,0,2); //[1,2,1,2]
     - let ary = new Array(1,2,3) //[1,2,3]
     - let arrayLike = document.querySelectorAll('div') // Creates Array like object but can't be iterated
