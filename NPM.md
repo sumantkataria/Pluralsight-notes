@@ -18,7 +18,7 @@
     - track dependencies
     - create script
 14. package-lock.json -> pretty important file as it helps locking the dependencies that gets developed while creating the project(& not your co-worker)(helps installing the exact same versions on your co-worker's machine)(package-lock.json overrides package.json when "npm i" is called)
-15. npm list --depth 0 --long -> this command lists all the depenedencies with details
+15. npm list --depth 0 --long/--json/--parseable/--dev/--prod -> this command lists all the depenedencies with details
     - -g flag lists global dependencies
 16. npm install lodash@">=1.1.0 <1.4.0 -> it will install version greater than 1.1.0 & less than 1.4.0
 17. npm install lodash@1.1.0 --save-exact -> this will install exact version
@@ -44,3 +44,4 @@
     - --only=dev|prod OR --production -> updates dev or prod issues
     - --package-lock-only --> only updates package.json
     - --force -> enables audit fix to ignore semantic versioning
+36. git tag & git push & git push --tags -> pushes tag to git
