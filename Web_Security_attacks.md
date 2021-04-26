@@ -20,7 +20,7 @@ OWASP Top 10 -
 5. Broken access control
     Insecure Direct Object references(change ID in URL) -
         - Implement access controls
-        - Use indirect maps
+        - Use indirect maps(don't expose internal keys externally)
         - Avoid predictable keys
     Missing Function level access control(server side authentication & authorization checks missing)
         - Define a clear authorization model
@@ -34,7 +34,7 @@ OWASP Top 10 -
     - Input validation
     - Whitelist untrusted data
     - Always encode output
-    - Encode for context
+    - Encode for context(HTML/CSS/JS)
     - Removed by using libraries such as React, Ruby on rails etc
         - Show a warning before redirecting user tountrusted domain
         - Whitelist domains
