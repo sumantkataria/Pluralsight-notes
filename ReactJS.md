@@ -1,6 +1,13 @@
 ReactJS -
 
 1. Why React -
+    - Flexibility
+    - Developer experience
+    - Corporate investment
+    - Community support
+    - Performance
+    - Testability
+1. What in React -
     - JS library for building UI
     - The "virtual" DOM
     - Just Javascript(need lots of learning in JS to be better in React)
