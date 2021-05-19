@@ -174,3 +174,55 @@ Usually, we use preserve in order to leave the JSX transformation to a different
         }
     }
     // name is a private field & can't be accessed outside its class scope
+23. Generic functions
+    - function genericFunction<T>(x: T): T {
+        return x;
+    }
+    - function genericArrowFunction = <T>(x: T) : T => x;
+24. Generic Interfaces
+    - interface GenericInterface<T> {
+        (a: T) : T;
+        someProp : T;
+    }
+    - interface GenericInterface<T> {
+        <U>(a: U) : U;
+        someProp : T;
+    }
+25. Generic Classes
+    - class GeneriClass<P> {
+        constructor(public props : P) {}
+        getProps() : P {
+            return this.props;
+        }
+    }
+26. Union type
+    - function someFn(myArgument: number | string | boolean) {
+        if(typeof myArgument === ''string') {
+            let x = myArgument.toUpperCase();
+        } else if(typeof myArgument === ''number') {
+            myArgument.toFixed();
+        } else {
+            myArgument
+        }
+    }
+27. Intersection type
+    - interface IA {
+        a : number;
+    }
+    - interface IB {
+        b : number;
+    }
+    - interface IC {
+        c : number;
+    }
+    function X(obj: IA & IB & IC) {
+        return obj.a + obj.b + obj.c;
+    }
+28. Type Alias
+    - type Alias1 = string | string[] | null;
+    - type Alias2 = { a: number } & { b: number };
+    - type Alias3<T> = T[];
+    - type Alias2 = {
+        a: number;
+        b: number;
+    }
