@@ -92,4 +92,85 @@ Usually, we use preserve in order to leave the JSX transformation to a different
 14. Interfaces
     - interface A {
         somePrep : number;
+        newProp : string;
     }
+    let a : A = {someProp : 1} // Error as 'newProp' property is missing
+    - interface Profile {
+        readonly name : string; // readonly attribute makes as assignable once object is created
+        age? : number; // ? makes property as optional
+    }
+    let profile : Profile { name : 'John'} // No Error as age is optional property
+    profile.name = 'Sumant' // Error as name property is readonly
+15. Index Signature
+    - interface A {
+        someProp : string;
+        [key : string] : number | string;
+    }
+    const a : A = {someProp : 'some property' };
+    a.x = 1
+    a.y = 2
+16. Call Signature
+    - interface Sum {
+        (a: number, b: number) : number;
+        prop1: string;
+    }
+    const sum : Sum = (a, b) => sum
+    sum.prop1 = 'some string';
+17. Extending Interfaces
+    - interface Parent {
+        x: string;
+    }
+    interface Parent2 {
+        y: string;
+    }
+    interface Parent3 {
+        z: string;
+    }
+    interface Child extends Parent, Parent2, Parent3 {}
+    let child : Child = {x: 'some prop', y : 'y prop', z : 'z prop'}
+18. Functions
+    - function sum(a : number, b : number = 0) : number {
+        return a + b
+    }
+    // Assigning default value
+    - type MyFunc = (a : number, b : number) => number;
+      const sum2 = MyFunc = (a, b) => a + b
+    - function sumAll(...number: number[]) : number {
+        return numbers.reduce((result, num) => result + num, 0)
+    }
+19. Classes
+    - class FyingRobot {
+        public | protected | private jetpackSize : number; // Scope can be added for property
+        constructor(name: string, jetpackSize : number) {
+            super(name);
+            this.jetpackSize = jetpackSize;
+        }
+        move(distance : number) {
+            console.log(`${this.name} is flying`)
+            super.move(distance)
+        }
+    }
+    - class Person {
+        constructor(
+            public name: string,
+            protected email: string,
+            private salary: number
+        ) {}
+        } 
+        class Employee extends Person {
+            getEmployeeInfo() {
+                return `${this.name} ${this.email} ${this.salary}`;
+            }
+        }
+        const jack = new Employee('Jack', 'jack@example.com', 1000);
+        console.log(jack.getEmployeeInfo()); // Error as salary is private property
+20. Static side - The static side includes the static members of the class and the constructor.
+21. Instance side - The non-static properties and methods belong to the instance side of a class.
+22. Private Fields -
+    - class Robot {
+        #name : string
+        constructor(name: string) {
+            this.#name = name
+        }
+    }
+    // name is a private field & can't be accessed outside its class scope
