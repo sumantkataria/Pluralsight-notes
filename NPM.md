@@ -47,3 +47,4 @@
 36. git tag & git push & git push --tags -> pushes tag to git
 37. devDependency - If someone is planning on downloading & using our module in their program, then the don't want/need to download & build the external test or documenttion framework that we use. In this case, it's best to map these additionl items as devDependency object.
 38. depenency - When we are developing a package that will be used by other developers n thier program, then we should map it as dependency object.
+    - dependencies are required to run, devDependencies only to develop
