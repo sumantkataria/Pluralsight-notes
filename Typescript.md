@@ -226,3 +226,4 @@ Usually, we use preserve in order to leave the JSX transformation to a different
         a: number;
         b: number;
     }
+29. .tsx extension is used when we want to embed JSX elements inside the file while .ts is used for plain Typescript files & does not support adding JSX elements.
