@@ -171,3 +171,17 @@ Good parts of Javascript ->
 2. Declare all variables at the top of the function.
 3. Declare all functions before you call them.
 4. Use least GLOBAL_VARIABLES.
+
+
+Javascript Extras ->
+1. function fn(a=1, b=2, c=3) {
+    console.log(`a=${a}, b=${b}, c=${c}`)
+    console.log("arguments", arguments) // JS adds arguments where argments are actually passed
+  }
+  fn(4,6,8); // arguments object will have values
+  fn(); // argemnts will not have any values
+2. let stringNumber = "3";
+    // Convert String to Number
+    parseInt(stringNumber)
+    Number(stringNumber)
+    +(stringNumber)
