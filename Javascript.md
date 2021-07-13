@@ -185,3 +185,8 @@ Javascript Extras ->
     parseInt(stringNumber)
     Number(stringNumber)
     +(stringNumber)
+3. const data = [[1], [[2,3]], [[[4]]]];
+    // same as data.flat(1)
+    console.log(data.flat()); // [1, [2, 3], [[4]]]
+    console.log(data.flat(0)); // [[1], [[2, 3]], [[[4]]]]
+    console.log(data.flat(2)); // [1, 2, 3, [4]]
