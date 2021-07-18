@@ -26,3 +26,4 @@ ReactJS -
 6. Impure
 7. Stateful vs Stateless components
 8. JSX
+9. Higher Order Components(HOCs) - it is an advanced technique for re-using component logic. A HOC is a function that takes components & return a new component. A component transforms props into UI, a HOC transforms component into another component.
