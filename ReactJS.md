@@ -38,6 +38,9 @@ ReactJS -
             window.removeEventListener('resize', handleResize) // componentWillUnmount
         }
     })
+    - useEffect(() => {
+        let x = window.matchMedia(query);
+    }, [query]); // componentDidUpdate
 11. Custom Hooks -
     - const name = useFormInput('Sumant')
       const surname = useFormInput('Kataria')
