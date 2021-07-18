@@ -190,3 +190,4 @@ Javascript Extras ->
     console.log(data.flat()); // [1, [2, 3], [[4]]]
     console.log(data.flat(0)); // [[1], [[2, 3]], [[[4]]]]
     console.log(data.flat(2)); // [1, 2, 3, [4]]
+4. [...Array(5).keys()]; // generates [0,1,2,3,4]
