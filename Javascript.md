@@ -192,3 +192,16 @@ Javascript Extras ->
     console.log(data.flat(2)); // [1, 2, 3, [4]]
 4. [...Array(5).keys()]; // [0,1,2,3,4]
 5. const arr = Array.from(new Set([2,3,4,2,3,5])); // [2,3,4,5]
+6.  const obj1 = { z: { b: { c: { d: { d1: 1, d2: 3 } } } }, a: 8 };
+    const obj2 = { z: { b: { c: { d: { d2: 3, d1: 1 } } } }, a: 8 };
+    // Compare 2 objects
+        1. JSON.stringify(obj1) === JSON.stringify(obj2)
+        2. _.isEqual(obj1, obj2)
+7. // Custom Map attached to Array prototype
+    Array.prototype.customMap = function(callback) => {
+        let newArr = [];
+            for(let i=0; i < this.length; i++) {
+                newArr.push(callback(this[i], i, this))
+            }
+            return newArr;
+    }
