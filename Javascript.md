@@ -205,3 +205,9 @@ Javascript Extras ->
             }
             return newArr;
     }
+8. Shallow Copy - A new copy created that has an exact copy of the values in the original object. E.g. if X is copied from Y, addresses of both will be same i.e. they will be pointing to same memory location.
+    - let employeeDetailsOriginal = {  name: 'Sumant', age: 29, Profession: 'Software Engineer' };
+      let employeeDetailsDuplicate = employeeDetailsOriginal; //Shallow copy!
+9. Deep Copy - A new copy created that has exact copy of the values in the original object but allocates new memory location. E.g. if X is copied from Y, addresses of both will be different i.e. they will be pointing to different memory locations.
+    - let employeeDetailsOriginal = {  name: 'Sumant', age: 29, Profession: 'Software Engineer' };
+      let employeeDetailsDuplicate = { name: employeeDetailsOriginal.name, age: employeeDetailsOriginal.age, Profession: employeeDetailsOriginal.Profession}; //Deep copy!
