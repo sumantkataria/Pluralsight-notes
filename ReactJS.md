@@ -21,13 +21,17 @@ ReactJS -
     - Reactive updates
     - Virtual views in memory
 3. Function component
-4. Class component
-5. Pure functions are the functions whose returned values solely depends on their arguments. They do not have any side effects.
-6. Impure
-7. Stateful vs Stateless components
-8. JSX
-9. Higher Order Components(HOCs) - it is an advanced technique for re-using component logic. A HOC is a function that takes components & return a new component. A component transforms props into UI, a HOC transforms component into another component.
-10. React Hooks -
+4. Class component(rce for regular)(ronst for constructor) - does not implement shouldComponentUpdate method. It alwaysreturns true by default.
+5. Pure Components(rpce for pure) - implements shouldComponentUpdate with shallow props & state comparison.
+    - Means it compares prevState with currentState/prevPros with currentProps & only renders when it's modified.
+    - Helps in performance boost in certain scenarios.
+
+6. Pure functions are the functions whose returned values solely depends on their arguments. They do not have any side effects.
+7. Impure
+8. Stateful vs Stateless components
+9. JSX
+10. Higher Order Components(HOCs) - it is an advanced technique for re-using component logic. A HOC is a function that takes components & return a new component. A component transforms props into UI, a HOC transforms component into another component.
+11. React Hooks -
     - useEffect(() => {        
         document.title = name + " " + surname; // componentDidMount & componentDidUpdate
     })
@@ -41,7 +45,7 @@ ReactJS -
     - useEffect(() => {
         let x = window.matchMedia(query);
     }, [query]); // componentDidUpdate
-11. Custom Hooks -
+12. Custom Hooks -
     - const name = useFormInput('Sumant')
       const surname = useFormInput('Kataria')
         function useFormInput(initialValue) { // custom hook
@@ -56,3 +60,7 @@ ReactJS -
         }
     <input {...name} />
     <input {...surname} />
+13. React component re-renders in following scenario -
+    - setState is called
+    - props are updated
+    - this.forceUpdate() is called
