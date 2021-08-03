@@ -25,7 +25,7 @@ ReactJS -
 5. Pure Components(rpce for pure) - implements shouldComponentUpdate with shallow props & state comparison.
     - Means it compares prevState with currentState/prevPros with currentProps & only renders when it's modified.
     - Helps in performance boost in certain scenarios.
-
+    - Pure components defined as function will always re-render.
 6. Pure functions are the functions whose returned values solely depends on their arguments. They do not have any side effects.
 7. Impure
 8. Stateful vs Stateless components
@@ -64,3 +64,4 @@ ReactJS -
     - setState is called
     - props are updated
     - this.forceUpdate() is called
+14. React.memo() hook prevents re-rendering on React function components.
