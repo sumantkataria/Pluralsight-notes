@@ -1,37 +1,41 @@
-1. let, const keyword
-2. Destructuring
+1. let keyword -> 
+2. const keyword(means contact reference to a variable) ->
+  - Variables defined with const cannot be Re-declared, re-assigned & have block scope.
+  - Objects/Array defined with const can update the elements.
+  - Objects/Array defined with const can update the properties.
+3. Destructuring
     let x = 2,y = 3
     [x, y] = [y, x]
     console.log(x, y)
-3. Default parameters
+4. Default parameters
     - Always last formal parameter
     - function fullName(fName="Sumant", lName="Kataria") {}
-4. Rest parameters
+5. Rest parameters
     - must be last formal parameter
     - function greet(...names) {
         names.forEach(name => console.log('Hi' + name))
     }
-5. Spread operator
+6. Spread operator
     - Opposite of rest parameter
     - function greet(name1, name2) {
         console.log(name1, name2)
     }
     let letters = ['sumant', 'kataria']
     greet(...letters)
-6. Template literals
+7. Template literals
     - let url = `http://domain/${node}/${id}`
     - let result = `${x}+${y} = ${x+y}`
-7. Classes
-8. Constructor
-9. get & set in class
-10. Inheritance
+8. Classes
+9. Constructor
+10. get & set in class
+11. Inheritance
     - class Employee extends person
-11. super
+12. super
     - constructor(name, title) {
         super(name);
     }
-12. arrow function
-13. Iterators & Generators(yield function)
+13. arrow function
+14. Iterators & Generators(yield function)
     - let numbers = function*() {
         yield 1;
         yield 2;
@@ -45,9 +49,9 @@
       sum += next.value;
       next = iterator.next();
     }
-14. Comprehensions
+15. Comprehensions
     - let numbers = [for (n of [1,2,3] n*n)] // [1,4,9]
-15. Number
+16. Number
     - hexadecimal literal
     - binary literal
     - Number.parseInt
@@ -58,7 +62,7 @@
     - Number.MAX_SAFE_INTEGER
     - Number.MIN_SAFE_INTEGER
     - Number.isSafeInteger
-16. Math
+17. Math
     - Math.acosh(1) // 0
     - Math.asinh(0) // 0
     - Math.atanh(0) // 0
@@ -77,7 +81,7 @@
 
     - Math.sign(10) // 1
     - Math.trunc(-2.8) // -2
-17. Array -
+18. Array -
     - [1,5,10].find(item => item > 8); // 10
     - [1,8,10].findIndex(item => item > 3); // 1
     - [1,2,3,4,5].fill('a');
@@ -94,10 +98,10 @@
       let keys = a.keys();
       let firstEntry = keys.next().value;
       console.log(firstEntry); //key
-18. Array Comprehensions -
+19. Array Comprehensions -
     - let ary = [for (i of [1,2,3]) i*i]; //[1,4,9]
     - let ary = [for (i of [1,2,3]) if(i<3)]; //[1,2]
-19. Set(no duplicates) -
+20. Set(no duplicates) -
     - let set = new Set()
       console.log(set.size)
     - set.add("Sumant")
@@ -144,7 +148,7 @@
       set.add(2)
       let set2 = new Set(set.values())
       console.log(set2.size); // 2
-20. Map(no duplicate keys) -
+21. Map(no duplicate keys) -
     - let map = new Map();
       console.log(map.size); // 0
     - let map = new Map();
@@ -195,7 +199,7 @@
       console.log(map2.size); // 3
     - Faster searching than Objects
     - keys can be of any data type
-21. WeakMap & WeakSet(if a div element is removed from DOM& its corresponding item in set is still pointing at it, so that div element cannot be Garbage collected & its still stuck in memory, So, to solve it WeakMap & WeakSet are created. Their pointers are not strong pointers & therefore the GC can recycle the objects even if the WeakMap/WeakSet is still pointing at it.)
+22. WeakMap & WeakSet(if a div element is removed from DOM& its corresponding item in set is still pointing at it, so that div element cannot be Garbage collected & its still stuck in memory, So, to solve it WeakMap & WeakSet are created. Their pointers are not strong pointers & therefore the GC can recycle the objects even if the WeakMap/WeakSet is still pointing at it.)
     - WeakSet -
         - let set = new WeakSet();
           console.log(set.size); // undefined
@@ -237,7 +241,7 @@
           map.set(key, "a")
           map.clear(key);
           console.log(map.has(item)); // false
-22. Asynchronous programming
-23. Object.is vs Object.assign
-24. Proxy functions
-25. Modules in JS
+23. Asynchronous programming
+24. Object.is vs Object.assign
+25. Proxy functions
+26. Modules in JS
