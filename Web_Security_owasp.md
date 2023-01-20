@@ -49,10 +49,10 @@ OWASP Top 10 -
         - Whitelist all special characters
 8. Insecure Deserilization -
     - Integrity around serialize objects
-9. Components with known vulnerabilities(disclosure of component version) -
+9. Components with known vulnerabilities - disclosure of component version
     - Identify components & versions
     - Components should be monitored
-    - Keep components updated
+    - Keep components updated or patching
 10. Insufficient Logging & Monitoring -
     - User inputs logged with proper data
     - Logs in a proper format
@@ -62,13 +62,15 @@ Excluded ones -
     - URL whitelist
     - Use indirect references(DB mapping with an ID)
     - Check the referrer
-1. Cross Site Request Forgery - an attack which forces victim to execute unwanted actions on a web application in which they are currently authenticated.
+2. Cross Site Request Forgery - an attack which forces victim to execute unwanted actions on a web application in which they are currently authenticated.
     - Re-authenticate for all critical actions
     - Include hidden token in request
     - Employ anti-forgery tokens
     - Validate the referrer, host
     - Native browser defences, fraud detection protection
-
+3. Server Site Request Forgery - misuse of prior established trust to access other resources. 
+    - sanitize & validate all client supplied input data.
+    - limiting connections to specific ports only.
 
 Extra points -
 - Difference between Cross-Site scripting(XSS) & SQL injection is that XSS is client-side vulnerability that targets other application users while SQL injection is a server-side vulnerability that targets application's database.

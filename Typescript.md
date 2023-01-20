@@ -1,49 +1,39 @@
-1. tsconfig.json -> config file for TS
-2. "compilerOptions": {
-    "target" : "es5"
-    "outDir" : "dist"
-    "strictNullChecks" : true
-}
-- tells target for compiler
-- outDir tells path for storing the compiled files
-- strictNullChecks checks for any null pointer exception
-3. "include" : ["**/*.ts"]
-- ** denotes any subfolder
-- * denotes any file name
-4. "target": "es6"
-- This is the version of ECMAScript you would like to compile your code to.
-- Common values: ES5, ES6/ES2015, ES2016, ES2017, ES2018, ES2019, ES2020, ESNext
-5. "lib": ["dom", "dom.iterable", "esnext"]
-- This is the list of library files you would like to include during the compilation. Basically, the library files tell the compiler which features we can use in our TypeScript code. For example, there is a library file called "DOM". This file tells the compiler how the DOM API looks. So when we use the DOM API in our TS code (e.g., document.querySelector("a")), compiler knows how to check it.
-6. "strict": true
-- Enables all strict type checking options, like noImplicitAny, noImplicitThis, alwaysStrict, strictBindCallApply, strictNullChecks, strictFunctionTypes, strictPropertyInitialization. I suggest to enable this option in order to improve the type safety of your code.
-7. "esModuleInterop": true
-This option allows us to import default from commonjs modules which don’t have a default export (modules which didn’t export the "default" property), like React, as if they have it.
-- For example, in TypeScript, before, we used to import React like this:
-        import * as React from 'react'
-    Having this option enabled, we can import React like this:
-        import React from 'react'
-8. "jsx": "preserve"
-- We use this option to tell the compiler how to transform the JSX code. "preserve" leaves JSX as is in the compiled files, while the "react" option turns JSX into the React API calls (e.g., React.createElement('div')).
-Usually, we use preserve in order to leave the JSX transformation to a different tool in our build chain (e.g., Babel).
-9. "skipLibCheck": true
-- This option tells the compiler whether to type check the declaration(*.d.ts) files (yours and the ones from the third party packages) in your project.
-- The idea behind this option is to reduce the compile time of a project, by skipping the type checking of the declarations which are already tested by their authors and are known to work correctly.
-- Also, it might happen that you use a few packages whose type definitions are incompatible. Or, you’re importing a package that was built using a tsconfig which is less strict than yours (e.g., your config has the "strict" option enabled, while the other config has it disabled). In these cases the compiler will produce errors while type checking those packages.
-- With this option enabled the compiler won’t go deep into checking the types of the third party packages, but it will still check our code against the type definitions provided by these packages.
-10. "include": ["src/**/*"]
-- We use this option to list the files we’d like to be compiled. While the "files" option requires relative or absolute paths to the files, the "include" option allows glob-like patterns, like:
+# Typescript
+
+1. Created to solve shortcomings of Javascript. It is Javascript with type checking.
+2. Advantages -
+    - Static typing
+    - Code completion
+    - Refactoring
+    - Shorthand notations
+    - Cleaner & concise code
+3. Drawbacks -
+    - Compilation(transpilation)
+    - Not good for simple projects
+4. Configuring TS compiler -
+    - tsconfig.json -> config file for TS
+    - "compilerOptions": {
+        "target" : "ES2016",               // tells target for compiler
+        "outDir" : "dist",              // tells path for storing the compiled files
+        "strictNullChecks" : true       // checks for any null pointer exception
+    }
+    - "include" : ["**/*.ts"]           // ** denotes any subfolder     // * denotes any file name
+    - "target": "es6"   // version of ECMAScript you would like to compile your code to.
+        // Common values: ES5, ES6/ES2015, ES2016, ES2017, ES2018, ES2019, ES2020, ESNext
+    - "lib": ["dom", "dom.iterable", "esnext"]  // list of library files you would like to include during the compilation. Basically,   the library files tell the compiler which features we can use in our TypeScript code. For example, there is a library file called "DOM". This file tells the compiler how the DOM API looks. So when we use the DOM API in our TS code (e.g., document.querySelector("a")), compiler knows how to check it.
+    - "strict": true    // Enables all strict type checking options, like noImplicitAny, noImplicitThis, alwaysStrict, strictBindCallApply, strictNullChecks, strictFunctionTypes, strictPropertyInitialization. I suggest to enable this option in order to improve the type safety of your code.
+    - "esModuleInterop": true   // allows us to import default from commonjs modules which don’t have a default export (modules which didn’t export the "default" property), like React, as if they have it.
+    - Older react import: import * as React from 'react' 
+    - Having this option enabled, we can import React like this: import React from 'react'
+    - "jsx": "preserve" // this option tells the compiler how to transform the JSX code. "preserve" leaves JSX as is in the compiled files, while the "react" option turns JSX into the React API calls (e.g., React.createElement('div')). Usually, we use preserve in order to leave the JSX transformation to a different tool in our build chain (e.g., Babel).
+    - "skipLibCheck": true  // tells compiler whether to type check the declaration(*.d.ts) files (yours and the ones from the third party packages) in your project. The idea behind this option is to reduce the compile time of a project, by skipping the type checking of the declarations which are already tested by their authors and are known to work correctly. Also, it might happen that you use a few packages whose type definitions are incompatible. Or, you’re importing a package that was built using a tsconfig which is less strict than yours (e.g., your config has the "strict" option enabled, while the other config has it disabled). In these cases the compiler will produce errors while type checking those packages. With this option enabled the compiler won’t go deep into checking the types of the third party packages, but it will still check our code against the type definitions provided by these packages.
+    - "include": ["src/**/*"]   // this option lists the files we’d like to be compiled. While the "files" option requires relative or absolute paths to the files, the "include" option allows glob-like patterns, like:
     "**" - any subdirectory
     "*" - any file name
     "?" - a character followed by the question mark becomes optional (e.g., "src/*.tsx?")
-11. "exclude": ["node_modules", "**/*/*.test.ts"]
-- This option excludes the files from the compilation. It accepts the same patterns as the "include" option. You can use this option to filter the files specified using the "include" option. The "exclude" option doesn’t affect the "files" option.
-- Usually, you’d like to exclude node_modules, test files, and the compilation output directory.
-- If you omit this option, the compiler will exclude the folder specified using the "outDir" option.
-- If you won’t specify both options, "files" and "include", the compiler will compile all the TS files from the root directory and any subdirectory excluding the files specified using the "exclude" option.
-12. "module": "commonjs"
-- This option sets the module system that will be used in the compiled (.JS) files. You should choose the module system that is supported by the environment where your code will run. For example, Node.js uses CommonJS.
-13. TS Types ->
+    - "exclude": ["node_modules", "**/*/*.test.ts"] // This option excludes the files from the compilation. It accepts the same patterns as the "include" option. You can use this option to filter the files specified using the "include" option. The "exclude" option doesn’t affect the "files" option. Usually, you’d like to exclude node_modules, test files, and the compilation output directory. If you omit this option, the compiler will exclude the folder specified using the "outDir" option. If you won’t specify both options, "files" and "include", the compiler will compile all the TS files from the root directory and any subdirectory excluding the files specified using the "exclude" option.
+    - "module": "commonjs"  // This option sets the module system that will be used in the compiled (.JS) files. You should choose the module system that is supported by the environment where your code will run. For example, Node.js uses CommonJS.
+5. TS Types ->
     Primitives ->
     - Boolean
         - let b : boolean = false
@@ -89,7 +79,7 @@ Usually, we use preserve in order to leave the JSX transformation to a different
                   console.log(input.value);
               });
           }
-14. Interfaces
+6. Interfaces
     - interface A {
         somePrep : number;
         newProp : string;
@@ -101,7 +91,7 @@ Usually, we use preserve in order to leave the JSX transformation to a different
     }
     let profile : Profile { name : 'John'} // No Error as age is optional property
     profile.name = 'Sumant' // Error as name property is readonly
-15. Index Signature
+7. Index Signature
     - interface A {
         someProp : string;
         [key : string] : number | string;
@@ -109,14 +99,14 @@ Usually, we use preserve in order to leave the JSX transformation to a different
     const a : A = {someProp : 'some property' };
     a.x = 1
     a.y = 2
-16. Call Signature
+8. Call Signature
     - interface Sum {
         (a: number, b: number) : number;
         prop1: string;
     }
     const sum : Sum = (a, b) => sum
     sum.prop1 = 'some string';
-17. Extending Interfaces
+9. Extending Interfaces
     - interface Parent {
         x: string;
     }
