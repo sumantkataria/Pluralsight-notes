@@ -211,3 +211,24 @@ Javascript Extras ->
 9. Deep Copy - A new copy created that has exact copy of the values in the original object but allocates new memory location. E.g. if X is copied from Y, addresses of both will be different i.e. they will be pointing to different memory locations.
     - let employeeDetailsOriginal = {  name: 'Sumant', age: 29, Profession: 'Software Engineer' };
       let employeeDetailsDuplicate = { name: employeeDetailsOriginal.name, age: employeeDetailsOriginal.age, Profession: employeeDetailsOriginal.Profession}; //Deep copy!
+
+Javascript Web Workers -
+    - a javascript process that runs in the background of a webpage.
+    - JS is Single-threaded(main thread). Web-worker is a separate JS thread that allows to execute multiple JS threads to work parallel to each other.
+    - Used to offload any CPU intensive work so that main thread doesn't get bogged down & can continue executing some other code.
+    - Can't perform any DOM manipulation.(only main thread can perform)
+    - Example
+        # Worker File
+        self.onmessage = function(message) {
+            // any CPU computation like adding or subtracting etc.
+            self.postMessage(sum)
+        }
+
+        # Main File
+        const worker = new Worker("worker.js)
+        sumButton.addEventListener("click", (event) => {
+            worker.postMessage("hello")
+        })
+        worker.onmessage = function(message) {
+            alert(`The final sum is${message.data}`)
+        }
