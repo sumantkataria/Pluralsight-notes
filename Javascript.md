@@ -1,8 +1,8 @@
-Javascript -
+# Javascript -
 
-Javascript is weakly typed, prototype-based language with first-class functions.
-Javascript is dynamic. Compilation & execution happens together.
-JS is weakly typed. Type associated with value, not variable.
+    - Javascript is weakly typed, prototype-based language with first-class functions.
+    - Javascript is dynamic. Compilation & execution happens together.
+    - JS is weakly typed. Type associated with value, not variable.
 
 1. JS variables must start with _/$/letter only.
 2. Operator precedence -> BODMAS
@@ -18,18 +18,18 @@ JS is weakly typed. Type associated with value, not variable.
 12. Call by value passes actual values & does not reflect changes to original values.
 13. Call by reference passes reference values & does reflect changes to original values.
 
-Javascript Arrays =>
+# Javascript Arrays =>
 1. Array shift() & unshift()
 2. Slice(creates a sub-array) & splice(for inserting/deleting)
 3. filter(used for searching & creating new array), find(checks & return true/false), forEach(), indexOf
 4. Array.isArray(arr) // true
 
-Javascript Modules =>
+# Javascript Modules =>
 1. type="module" in importing JS from HTML(<script type="module">)
 2. default import
 3. named import
 
-Javascript functions =>
+# Javascript functions =>
 1. function is a block of organized, reusabe code that is used to perform a single, related action
 2. arguments object
 3. block scope
@@ -46,7 +46,7 @@ Javascript functions =>
     - escape
     - unescape
 
-Javascript Asynchronous =>
+# Javascript Asynchronous =>
 1. Promise(object that represents the eventual completion(or failure) of an asychronous operation & its resulting value)
     - then (fulfilled)
     - catch (rejected)
@@ -113,7 +113,7 @@ Javascript Asynchronous =>
         })()
     ])
 
-Javascript Objects =>
+# Javascript Objects =>
 1. Objects literals, constructor functions & classes
 2. for...in loop
 3. ====                   |     Object.is(person1, person2)
@@ -163,7 +163,7 @@ Javascript Objects =>
     - Array -> "object"
     - Any other object -> "object"
 
-Good parts of Javascript ->
+# Good parts of Javascript ->
 1. return; //semicolon insertion 
    {
        ok
@@ -173,7 +173,7 @@ Good parts of Javascript ->
 4. Use least GLOBAL_VARIABLES.
 
 
-Javascript Extras ->
+# Javascript Extras ->
 1. function fn(a=1, b=2, c=3) {
     console.log(`a=${a}, b=${b}, c=${c}`)
     console.log("arguments", arguments) // JS adds arguments where argments are actually passed
@@ -211,37 +211,3 @@ Javascript Extras ->
 9. Deep Copy - A new copy created that has exact copy of the values in the original object but allocates new memory location. E.g. if X is copied from Y, addresses of both will be different i.e. they will be pointing to different memory locations.
     - let employeeDetailsOriginal = {  name: 'Sumant', age: 29, Profession: 'Software Engineer' };
       let employeeDetailsDuplicate = { name: employeeDetailsOriginal.name, age: employeeDetailsOriginal.age, Profession: employeeDetailsOriginal.Profession}; //Deep copy!
-
-Javascript Web Workers -
-    - a javascript process that runs in the background of a webpage.
-    - way to implement multi-threading.
-    - JS is Single-threaded(main thread). Web-worker is a separate JS thread that allows to execute multiple JS threads to work parallel to each other.
-    - Used to offload any CPU intensive work so that main thread doesn't get bogged down & can continue executing some other code.
-    - Can't perform any DOM manipulation.(only main thread can perform)
-    - NO ACCESS to -
-        a. window object
-        b. document object
-        c. parent object
-    - ACCESS to -
-        a. navigator object(useragent, geolocation)
-        b. location object(host, href, hostname etc)
-        c. XMLHttpRequest
-        d. setTimeout(), clearTimeout(), setInterval(), clearInterval()
-        e. Application cache
-        f. spawning other Web workers
-        g. myWorker.terminate() // termiate workers
-    - Example
-        # Worker File
-        self.onmessage = function(message) {
-            // any CPU computation like adding or subtracting etc.
-            self.postMessage(sum)
-        }
-
-        # Main File
-        const worker = new Worker("worker.js)
-        sumButton.addEventListener("click", (event) => {
-            worker.postMessage("hello")
-        })
-        worker.onmessage = function(message) {
-            alert(`The final sum is${message.data}`)
-        }
